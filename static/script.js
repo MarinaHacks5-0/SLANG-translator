@@ -49,14 +49,17 @@ resetBtn.addEventListener("click", () => {
 
 async function handleTranslate() {
   const text = input.value.trim();
+
   if (!text) {
     output.textContent = "Please enter text to translate!";
     return;
   }
+
   await translateText(text, currentDirection);
 }
 
 async function translateText(text, direction) {
+  console.log("Translating started...");
   output.textContent = "Translating...⏳";
 
   try {
@@ -88,4 +91,5 @@ function highlightMode(activeBtn) {
 // ============================================
 
 highlightMode(englishBtn);
-output.textContent = "Mode: Gen Z slang → English";
+output.textContent = "Translation will appear here...";
+
