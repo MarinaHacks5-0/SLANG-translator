@@ -1,6 +1,6 @@
 
 """
-app.py
+apps.py
 
 Flask backend for the GenZ Slang Translator project.
 It serves the main web page, handles user input,
