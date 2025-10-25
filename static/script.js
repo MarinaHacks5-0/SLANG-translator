@@ -1,18 +1,20 @@
 
+// ============================================
 // 1. Get elements: input field, buttons, output box
 // ============================================
 
-// ⬇️ Update these IDs to match your HTML ⬇️
+// ⬇️ Updated to match your HTML IDs ⬇️
 const input = document.getElementById("inputText");
-const output = document.getElementById("outputText");
-const translateBtn = document.getElementById("btn-translate");
-const englishBtn = document.getElementById("btn-genz-to-english");
-const genzBtn = document.getElementById("btn-english-to-genz");
-const resetBtn = document.getElementById("btn-reset");
+const output = document.getElementById("outputPane");
+const translateBtn = document.getElementById("translate-pill");
+const englishBtn = document.getElementById("english-pill");
+const genzBtn = document.getElementById("genz-pill");
+const resetBtn = document.getElementById("reset-pill");
 
 // Default translation direction: Gen Z → English
 let currentDirection = "genz_to_english";
 
+// ============================================
 // 2. Add event listeners
 // ============================================
 
@@ -39,8 +41,10 @@ resetBtn.addEventListener("click", () => {
   output.textContent = "";
   currentDirection = "genz_to_english";
   highlightMode(englishBtn);
+  output.textContent = "Mode: Gen Z slang → English";
 });
 
+// ============================================
 // 3. Translation logic (Fetch request to Flask)
 // ============================================
 
@@ -71,6 +75,7 @@ async function translateText(text, direction) {
   }
 }
 
+// ============================================
 // 4. Utility: Highlight active button
 // ============================================
 
@@ -79,9 +84,11 @@ function highlightMode(activeBtn) {
   activeBtn.classList.add("active");
 }
 
+// ============================================
 // 5. Initialize default mode on page load
 // ============================================
 
 highlightMode(englishBtn);
 output.textContent = "Mode: Gen Z slang → English";
+
 
