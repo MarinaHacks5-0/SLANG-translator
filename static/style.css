@@ -112,10 +112,11 @@ footer {
     min-width: 120px;
     background: var(--pink);
     border-radius: 10px;
-    margin: 0 auto;
+    margin-left: 0;
+    margin-right: auto;
     padding: 8px;
     border: var(--white) solid 3px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
  .panes {
