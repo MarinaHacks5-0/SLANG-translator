@@ -3,12 +3,11 @@
 // 1. Get elements: input field, buttons, output box
 // ============================================
 
-// ⬇️ Updated to match your HTML IDs ⬇️
 const input = document.getElementById("inputText");
-const output = document.getElementById("outputPane");
+const output = document.getElementById("outputText");
 const translateBtn = document.getElementById("translate-pill");
-const englishBtn = document.getElementById("english-pill");
-const genzBtn = document.getElementById("genz-pill");
+const englishBtn = document.getElementById("btn-slang-to-normal");
+const genzBtn = document.getElementById("btn-normal-to-slang");
 const resetBtn = document.getElementById("btn-reset");
 
 // Default translation direction: Gen Z → English
@@ -80,7 +79,7 @@ async function translateText(text, direction) {
 // ============================================
 
 function highlightMode(activeBtn) {
-  [englishBtn, genzBtn].forEach(btn => btn.classList.remove("active"));
+  [englishBtn, genzBtn].forEach((btn) => btn.classList.remove("active"));
   activeBtn.classList.add("active");
 }
 
@@ -90,5 +89,3 @@ function highlightMode(activeBtn) {
 
 highlightMode(englishBtn);
 output.textContent = "Mode: Gen Z slang → English";
-
-

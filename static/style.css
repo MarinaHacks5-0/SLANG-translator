@@ -45,13 +45,13 @@ footer {
 
 .mode-toggle {
     display: flex;
-    width: 90%;          
-    max-width: 500px;    
+    width: 70%;          
+    max-width: 300px;    
     background: var(--white);
     border-radius: 10px;
     justify-content: space-between;  
     flex-wrap: wrap;
-    padding: 5px;                  
+    padding: 3px;                  
 
 }
 
@@ -62,7 +62,7 @@ footer {
     border-radius: 10px;
     background: var(--pink);
     border: none;
-    padding: 10px 0;
+    padding: 6px 0;
     font-size: 1rem;
     margin: 0 5px;                  /* small spacing between buttons */
     color: var(--white);
@@ -70,7 +70,7 @@ footer {
     text-align: center;
 }
 
-.mode-toggle button:hover, .translate-pill:hover {
+.mode-toggle button:hover, .translate-pill:hover, .reset-pill:hover {
     transform: translateY(-5px) scale(1.0);
     background: rgb(217, 254, 255);
     border: 3px solid white;
@@ -101,7 +101,7 @@ footer {
     margin: 0 auto;
     padding: 8px;
     border: var(--white) solid 3px;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 

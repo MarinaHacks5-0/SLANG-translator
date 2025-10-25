@@ -21,39 +21,32 @@
     <!-- Main Card -->
     <div class="main-card">
         <main class="card">
-            <div class="card-top">
-                <button class="translate-pill" id="translate-pill" type="button">Translate</button>
-            </div>
-
-           
+            <button class="translate-pill" id="translate-pill" type="button">Translate</button>         
             <div class="panes">
                  <!-- LEFT: Input -->
                 <div class="pane" id="inputPane">
                     <div class="pane-header">Input</div>
-                        <input id="inputText" type="text" placeholder="Type slang here lol" required></input>
+                        <input id="inputText" type="text" placeholder="Type slang here lol" required/>
                         
                 </div>
 
                 <!-- RIGHT: Output -->
                 <div class="pane" id="outputPane" aria-live="polite" aria-busy="false">
                 <div class="pane-header">Output</div>
-
+                <div class="output-box" id="outputText">Translation will appear here...</div>
+                </div>
+            
                 <div class="loader-overlay" aria-hidden="true">
                     <div class="spinner" role="status" aria-label="loading"></div>
                 </div>
 
-                    <div id="outputText" class="output-box">Translation will appear here...</div>
-
-                    
                 
                 <div class="statusbar" aria-live="polite">
                     <span id="latency" hidden></span>
                     <span id="tokens" hidden></span>
                 </div>
-
-                
             </div>
-            <button type="button" id="btn-reset" class="reset-pill">Reset</button>
+            <button type="button" class="reset-pill" id="btn-reset" >Reset</button>
         </main>
     </div>
 
