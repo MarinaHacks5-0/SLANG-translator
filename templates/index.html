@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='style.css') }}">
+    <title>SlangTranslator</title>
+</head>
+<body>
+    <!--
+    <div class="navbar">
+        <h1>SlangTranslator</h1>
+    </div>
+    -->
+    <div class="mode-toggle">
+        <button class="pill-left" id="btn-slang-to-normal">Genz<br>Slang</button>
+        <div class="toggle-arrow">➜</div>
+        <button class="pill-right" id="btn-normal-to-slang">English<br>Description</button>
+    </div>
+
+    <!-- Title-->
+    <div class = "header-container">
+        <h2>its giving...professional translator</h2>
+    </div>
+
+    <!-- Main Card-->
+    <div class="main-card">
+        <main class="card">
+            <div class="card-top">
+                <div class="tab-left">Input</div>
+                <div class="divider"></div>
+                <div class="tab-right">Output</div>
+
+                <button class="translate-pill" id="translate-pill" type="button">Translate</button>
+            </div>
+
+            <div class="panes">
+                <div class= "pane">
+                    <form id="translator">
+                        <textarea name="" id="inputText" placeholder="Type slang here lol" required></textarea>
+                        <button type="button" id="btn-reset" class="reset-pill">Reset</button>
+                        <button id="translator-button" type="submit" class="sr-only">Submit</button>
+                    </form>
+                </div>
+
+                <div class="pane" id="outputPane">
+                    <div  id="outputText" class="output-box" aria-live="polite" placeholder="Translation will appear here" readonly></div>
+                </div>
+
+                <div class="loader-overlay" aria-hidden="true">
+                    <div class="spinner" role="status" aria-label="loading"></div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>Powered by OpenAi</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
