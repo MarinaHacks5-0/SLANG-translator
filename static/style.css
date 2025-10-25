@@ -1,18 +1,74 @@
-body{
-    background-image: url('/static/images/Background.jpeg');
-    text-align: center;
-    padding: 40px;
+:root {
+    --pink: #fe8dc5;
+    --light-pink: #ffb6d7;
+    --dark-pink: rgb(247, 84, 187);
+    --white: #ffffff;
+    --black: #000000;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url("images/Background.jpeg");
+    background-size: cover;          /* ensures the image fills the screen */
+    background-position: center;     /* centers the image */
+    background-repeat: no-repeat;    /* prevents tiling */
+    background-attachment: fixed;    /* keeps background fixed while scrolling */
+    min-height: 100vh;               /* ensures full viewport height */
     margin: 0;
+    padding: 40px;
+    text-align: center;
 }
 
-.output-container{
+.output-container {
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
-button{
-    margin-top: 20px;
+footer {
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--pink);
+    border-top: 4px solid var(--pink);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    padding: 2px 10px;
+    box-sizing: border-box;
+    color: var(--white);
+    font-weight: 600;
 }
 
-footer{
-    margin-top: 20px;
+
+.mode-toggle {
+    display: flex;
+    width: 40%;
+    background: var(--pink);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    justify-content: space-evenly;
+
+}
+
+.mode-toggle button {
+    width: 95vw;
+    max-width: 50px;
+    min-width: 200px;
+    border-radius: 10px;
+    background: white;
+    border: none;
+    padding: 10px 50px;
+    font-size: 1rem;
+}
+
+.translate-pill{
+    display: flex;
+    width: 40%;
+    background: var(--pink);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    border: var(--white) solid 3px;
+    justify-content: center;
 }
