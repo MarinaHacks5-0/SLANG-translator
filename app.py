@@ -13,9 +13,14 @@ from flask import Flask, render_template, request, jsonify
 from slang_dict import SLANG_DICT, NORM_DICT, get_meaning
 import openai
 import os
+from flask_livereload import LiveReload
+
+
 
 
 app= Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+LiveReload(app)
 
 
 openai.api_key = os.getenv("OPENAI_API_KEY")

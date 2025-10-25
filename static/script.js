@@ -1,9 +1,8 @@
-
-
 //What You’ll Include in script.js
 //Here’s what you’ll be implementing conceptually (not code yet):
 
 //Get elements: input field, translate button, and output box.
+//grabs the HTML elements by ID so the js can interact with it
 const input = document.getElementById("inputText");
 const translate = document.getElementById("translateButton"); //if clicked on: the "translate to" destination(arrow) should switch directions (i.e genz ---> english & genz <---- english)
 const reset = document.getElementById("resetButton");
@@ -13,10 +12,10 @@ const output = document.getElementById("outputBox");
 let isGenZToEnglish = true;
 
 //Add event listeners to detect when the button is clicked.
-button.addEventListener('click',handleTranslate);
+translate.addEventListener('click',handleTranslate);
 
 //To toggle the direction of the arrow on the translate button when clicked again.
-button.addEventListener('click',handleTranslate);("dblclick", () => { 
+translate.addEventListener('click',handleTranslate);("dblclick", () => { 
     isGenZToEnglish = ! isGenZToEnglish;
     translate.textContent = isGenZToEnglish
         ? "Gen Z to English"
@@ -35,7 +34,9 @@ async function handleTranslate() {
   if (!text) {
     output.textContent = "Please enter text to translate!";
     return;
-  }}
+  }
+  await translateText(text);
+}
 
 //Handle JSON response to display the translation result
 const data = await response.json(); 
@@ -50,11 +51,24 @@ try
 }
 
 
+//(Optional) Show a small loading spinner or text while waiting.(ex.Translating...;)
+async function translateText(text) {
+  output.textContent = "Translating...⏳";
+  try {
+    const response = await fetch("/translate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: text,
+        direction: isGenZToEnglish ? "genz_to_english" : "english_to_genz",
+      }),
+    });
 
+    const data = await response.json();
+    output.textContent = data.translation || "No translation found.";
+  } catch (error) {
+    console.error("Error:", error);
+    output.textContent = "Something went wrong. Please try again.";
+  }
+}
 
-
-//(Optional) Show a small loading spinner or text while waiting.Translating...;
-o "POST",utput.textCon {"c"}tent = "Tr
-      text:
-      direction:
-   ing...";
