@@ -1,14 +1,13 @@
 // ============================================
 // 1. Get elements: input field, buttons, output box
-// - Select and store references to the HTML elements so JS can read/update them.
-// - These elements include: input field, translate button, English & Gen Z mode buttons, reset button, and output area.
 // ============================================
 
+// ⬇️ Update these IDs to match your HTML ⬇️
 const input = document.getElementById("inputText");
 const output = document.getElementById("outputPane");
-const translateBtn = document.getElementById("translate-pill");
-const englishBtn = document.getElementById("btn-slang-to-normal");
-const genzBtn = document.getElementById("btn-normal-to-slang");
+const translateBtn = document.getElementById("btn-translate");
+const englishBtn = document.getElementById("btn-genz-to-english");
+const genzBtn = document.getElementById("btn-english-to-genz");
 const resetBtn = document.getElementById("btn-reset");
 
 // Default translation direction: Gen Z → English
@@ -17,31 +16,26 @@ let currentDirection = "genz_to_english";
 
 // ============================================
 // 2. Add event listeners
-// - Detect when the user clicks on:
-//   English Description button → sets mode: Gen Z slang → English
-//   Gen Z Slang button → sets mode: English → Gen Z slang
-//   Translate button → sends text to Flask for translation based on current mode
-//   Reset button → clears input/output and resets to default (Gen Z → English)
 // ============================================
 
-// Gen Z Slang button → English → Gen Z
+// English → Gen Z
 genzBtn.addEventListener("click", () => {
   currentDirection = "english_to_genz";
   highlightMode(genzBtn);
   output.textContent = "Mode: English → Gen Z slang";
 });
 
-// 💀 English Description button → Gen Z → English
+// Gen Z → English
 englishBtn.addEventListener("click", () => {
   currentDirection = "genz_to_english";
   highlightMode(englishBtn);
   output.textContent = "Mode: Gen Z slang → English";
 });
 
-// ⚡ Translate button → performs translation
+// Translate button
 translateBtn.addEventListener("click", handleTranslate);
 
-// 🔁 Reset button → clears and resets mode
+// Reset button
 resetBtn.addEventListener("click", () => {
   input.value = "";
   output.textContent = "";
@@ -51,13 +45,9 @@ resetBtn.addEventListener("click", () => {
 
 
 // ============================================
-// 3. Fetch API call to /translate (Flask route)
-// - When the translate button is clicked, send a POST request to the Flask backend.
-// - Include JSON data with:
-//     { text: userInput, direction: "genz_to_english" or "english_to_genz" }
+// 3. Translation logic (Fetch request to Flask)
 // ============================================
 
-// Perform translation based on selected mode
 async function handleTranslate() {
   const text = input.value.trim();
   if (!text) {
@@ -67,21 +57,7 @@ async function handleTranslate() {
   await translateText(text, currentDirection);
 }
 
-
-// ============================================
-// 4. Handle JSON response
-// - Wait for the Flask server to respond with a JSON object containing the translation.
-// - Extract the translated text and display it in the output box.
-// - If no translation or error occurs, show a helpful error message instead.
-// ============================================
-
 async function translateText(text, direction) {
-  // ============================================
-  // 5. (Optional) Loading feedback
-  // - While waiting for a response, display a short message (e.g., "Translating...⏳").
-  // - Replace the loading message with the translated result once received.
-  // ============================================
-
   output.textContent = "Translating...⏳";
 
   try {
@@ -101,8 +77,7 @@ async function translateText(text, direction) {
 
 
 // ============================================
-// Utility Function: Highlight Active Mode Button
-// - Adds a visual indicator for which mode is currently active.
+// 4. Utility: Highlight active button
 // ============================================
 
 function highlightMode(activeBtn) {
@@ -112,9 +87,9 @@ function highlightMode(activeBtn) {
 
 
 // ============================================
-// Initialize default mode on page load
-// - Highlight the English Description button and show the default mode message.
+// 5. Initialize default mode on page load
 // ============================================
 
 highlightMode(englishBtn);
-output.textContent = " ";
+output.textContent = "Mode: Gen Z slang → English";
+
