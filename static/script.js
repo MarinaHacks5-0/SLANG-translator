@@ -4,15 +4,6 @@
 // - These elements include: input field, translate button, English & Gen Z mode buttons, reset button, and output area.
 // ============================================
 
-<<<<<<< HEAD
-
-//What You’ll Include in script.js
-//Here’s what you’ll be implementing conceptually (not code yet):
-
-//Get elements: input field, translate button, and output box.
-//grabs the HTML elements by ID so the js can interact with it
-=======
->>>>>>> f2af97dcd0fe349337b7c98f3174d106a63383ae
 const input = document.getElementById("inputText");
 const output = document.getElementById("outputPane");
 const translateBtn = document.getElementById("translate-pill");
@@ -23,17 +14,6 @@ const resetBtn = document.getElementById("btn-reset");
 // Default translation direction: Gen Z → English
 let currentDirection = "genz_to_english";
 
-<<<<<<< HEAD
-//Add event listeners to detect when the button is clicked.
-translate.addEventListener('click',handleTranslate);
-
-//To toggle the direction of the arrow on the translate button when clicked again.
-translate.addEventListener('click',handleTranslate);("dblclick", () => { 
-    isGenZToEnglish = ! isGenZToEnglish;
-    translate.textContent = isGenZToEnglish
-        ? "Gen Z to English"
-        : "English to Gen Z";
-=======
 
 // ============================================
 // 2. Add event listeners
@@ -49,7 +29,6 @@ genzBtn.addEventListener("click", () => {
   currentDirection = "english_to_genz";
   highlightMode(genzBtn);
   output.textContent = "Mode: 🌹 English → Gen Z slang";
->>>>>>> f2af97dcd0fe349337b7c98f3174d106a63383ae
 });
 
 // 💀 English Description button → Gen Z → English
@@ -85,27 +64,6 @@ async function handleTranslate() {
     output.textContent = "Please enter text to translate!";
     return;
   }
-<<<<<<< HEAD
-  await translateText(text);
-}
-
-//Handle JSON response to display the translation result
-const data = await response.json(); 
-  //Handle JSON response to display the translation result.
-try 
-{
-  const data = await response.json();
-  output.textContent = data.translation || "No translation found.";
-} catch (error) {
-  console.error("Error:", error);
-  output.textContent = "Something went wrong. Please try again.";
-}
-
-
-//(Optional) Show a small loading spinner or text while waiting.(ex.Translating...;)
-async function translateText(text) {
-  output.textContent = "Translating...⏳";
-=======
   await translateText(text, currentDirection);
 }
 
@@ -126,18 +84,10 @@ async function translateText(text, direction) {
 
   output.textContent = "Translating...⏳";
 
->>>>>>> f2af97dcd0fe349337b7c98f3174d106a63383ae
   try {
     const response = await fetch("/translate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-<<<<<<< HEAD
-      body: JSON.stringify({
-        text: text,
-        direction: isGenZToEnglish ? "genz_to_english" : "english_to_genz",
-      }),
-    });
-=======
       body: JSON.stringify({ text, direction }),
     });
 
@@ -148,7 +98,6 @@ async function translateText(text, direction) {
     output.textContent = "Something went wrong. Please try again.";
   }
 }
->>>>>>> f2af97dcd0fe349337b7c98f3174d106a63383ae
 
     const data = await response.json();
     output.textContent = data.translation || "No translation found.";
@@ -158,8 +107,6 @@ async function translateText(text, direction) {
   }
 }
 
-<<<<<<< HEAD
-=======
 // ============================================
 // Utility Function: Highlight Active Mode Button
 // - Adds a visual indicator for which mode is currently active.
@@ -178,4 +125,3 @@ function highlightMode(activeBtn) {
 
 highlightMode(englishBtn);
 output.textContent = "Mode: 💀 Gen Z slang → English";
->>>>>>> f2af97dcd0fe349337b7c98f3174d106a63383ae
