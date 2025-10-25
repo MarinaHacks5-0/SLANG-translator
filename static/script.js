@@ -18,24 +18,24 @@ let currentDirection = "genz_to_english";
 // ============================================
 // 2. Add event listeners
 // - Detect when the user clicks on:
-//   💀 English Description button → sets mode: Gen Z slang → English
-//   🌹 Gen Z Slang button → sets mode: English → Gen Z slang
-//   ⚡ Translate button → sends text to Flask for translation based on current mode
-//   🔁 Reset button → clears input/output and resets to default (Gen Z → English)
+//   English Description button → sets mode: Gen Z slang → English
+//   Gen Z Slang button → sets mode: English → Gen Z slang
+//   Translate button → sends text to Flask for translation based on current mode
+//   Reset button → clears input/output and resets to default (Gen Z → English)
 // ============================================
 
-// 🌹 Gen Z Slang button → English → Gen Z
+// Gen Z Slang button → English → Gen Z
 genzBtn.addEventListener("click", () => {
   currentDirection = "english_to_genz";
   highlightMode(genzBtn);
-  output.textContent = "Mode: 🌹 English → Gen Z slang";
+  output.textContent = "Mode: English → Gen Z slang";
 });
 
 // 💀 English Description button → Gen Z → English
 englishBtn.addEventListener("click", () => {
   currentDirection = "genz_to_english";
   highlightMode(englishBtn);
-  output.textContent = "Mode: 💀 Gen Z slang → English";
+  output.textContent = "Mode: Gen Z slang → English";
 });
 
 // ⚡ Translate button → performs translation
@@ -117,4 +117,4 @@ function highlightMode(activeBtn) {
 // ============================================
 
 highlightMode(englishBtn);
-output.textContent = "Mode: 💀 Gen Z slang → English";
+output.textContent = " ";
