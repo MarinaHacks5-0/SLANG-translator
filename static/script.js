@@ -1,4 +1,4 @@
-// ============================================
+
 // 1. Get elements: input field, buttons, output box
 // ============================================
 
@@ -13,8 +13,6 @@ const resetBtn = document.getElementById("btn-reset");
 // Default translation direction: Gen Z → English
 let currentDirection = "genz_to_english";
 
-
-// ============================================
 // 2. Add event listeners
 // ============================================
 
@@ -43,8 +41,6 @@ resetBtn.addEventListener("click", () => {
   highlightMode(englishBtn);
 });
 
-
-// ============================================
 // 3. Translation logic (Fetch request to Flask)
 // ============================================
 
@@ -75,8 +71,6 @@ async function translateText(text, direction) {
   }
 }
 
-
-// ============================================
 // 4. Utility: Highlight active button
 // ============================================
 
@@ -85,8 +79,6 @@ function highlightMode(activeBtn) {
   activeBtn.classList.add("active");
 }
 
-
-// ============================================
 // 5. Initialize default mode on page load
 // ============================================
 
