@@ -5,11 +5,11 @@
 // ============================================
 
 const input = document.getElementById("inputText");
-const output = document.getElementById("outputBox");
-const translateBtn = document.getElementById("translateButton");
-const englishBtn = document.getElementById("englishButton");
-const genzBtn = document.getElementById("genzButton");
-const resetBtn = document.getElementById("resetButton");
+const output = document.getElementById("outputPane");
+const translateBtn = document.getElementById("translate-pill");
+const englishBtn = document.getElementById("btn-slang-to-normal");
+const genzBtn = document.getElementById("btn-normal-to-slang");
+const resetBtn = document.getElementById("btn-reset");
 
 // Default translation direction: Gen Z → English
 let currentDirection = "genz_to_english";
