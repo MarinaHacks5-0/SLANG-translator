@@ -9,7 +9,7 @@ const output = document.getElementById("outputPane");
 const translateBtn = document.getElementById("translate-pill");
 const englishBtn = document.getElementById("english-pill");
 const genzBtn = document.getElementById("genz-pill");
-const resetBtn = document.getElementById("reset-pill");
+const resetBtn = document.getElementById("btn-reset");
 
 // Default translation direction: Gen Z → English
 let currentDirection = "genz_to_english";
