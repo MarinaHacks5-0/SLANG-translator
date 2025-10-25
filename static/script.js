@@ -4,7 +4,7 @@
 
 // ⬇️ Update these IDs to match your HTML ⬇️
 const input = document.getElementById("inputText");
-const output = document.getElementById("outputPane");
+const output = document.getElementById("outputText");
 const translateBtn = document.getElementById("btn-translate");
 const englishBtn = document.getElementById("btn-genz-to-english");
 const genzBtn = document.getElementById("btn-english-to-genz");
