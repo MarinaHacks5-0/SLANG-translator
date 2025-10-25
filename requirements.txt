@@ -2,7 +2,15 @@ Flask==3.0.3
 openai==1.42.0
 requests==2.31.0
 python-dotenv==1.0.1
+flask-livereload==0.2.2
+watchdog==6.0.0
 
 
+"""
+python3 -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+pip install -r requirements.txt
+flask run
+"""
 
-
+"""pip install -r requirements.txt"""

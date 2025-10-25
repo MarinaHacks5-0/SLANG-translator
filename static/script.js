@@ -4,11 +4,11 @@
 //Get elements: input field, translate button, and output box.
 //grabs the HTML elements by ID so the js can interact with it
 const input = document.getElementById("inputText");
+const output = document.getElementById("outputBox");
 const translate = document.getElementById("translateButton"); //if clicked on: the "translate to" destination(arrow) should switch directions (i.e genz ---> english & genz <---- english)
 const reset = document.getElementById("resetButton");
-const output = document.getElementById("outputBox");
 
-// Keep track of translation direction (default: Gen Z → English)
+// KeenglishDes = document.getElementById("englishDescriptionButton") ep track of translation direction (default: Gen Z → English)
 let isGenZToEnglish = true;
 
 //Add event listeners to detect when the button is clicked.
