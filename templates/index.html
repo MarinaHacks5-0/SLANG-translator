@@ -1,63 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>SlangTranslator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <title>SlangTranslator</title>
 </head>
 <body>
-    <!-- Mode toggle -->
-    <div class="mode-toggle">
-        <button class="pill-left" id="btn-slang-to-normal">Genz<br>Slang</button>
-        <button class="pill-right" id="btn-normal-to-slang">English<br>Description</button>
+  <!-- Mode toggle -->
+  <div class="mode-toggle">
+    <button class="pill-left" id="btn-slang-to-normal">Genz<br>Slang</button>
+    <button class="pill-right" id="btn-normal-to-slang">English<br>Description</button>
+  </div>
+
+ 
+
+  <!-- Title -->
+  <div class="header-container">
+    <img src="/static/images/header.png" alt="head">
+  </div>
+
+  <div class="card">
+
+
+    <div class="trans">
+
+      
+      <button type="button" class="button-container" id="translate-pill">Translate</button></div>
+
+
+    <!-- Panes -->
+    <div class="panes">
+
+
+
+      <!-- LEFT: Input -->
+    <div class="pane" id="inputPane">
+    <div class="pane-header">Input</div>
+    <div class="pane1">
+        <input id="inputText" type="text" placeholder="Type slang here lol" required />
+        <button id="micBtn" type="button"><img src="/static/images/mic.png" alt="head" id="mic"></button>
+    </div>
     </div>
 
-    <!-- Title -->
-    <div class="header-container">
-        <h2>Its giving...professional translator</h2>
+      <!-- RIGHT: Output -->
+
+
+      <div class="pane" id="outputPane" aria-live="polite">
+        <div class="pane-header">Output</div>
+        
+        <div class="pane2">
+        <div class="output-box" id="outputText">Translation will appear here...</div></div>
+      </div>
+
+      <!-- Optional Loading Overlay -->
+      <div class="loader-overlay" style="display: none;">
+        <div class="spinner"></div>
+      </div>
+
+      <div class="statusbar" aria-live="polite">
+        <span id="latency" hidden></span>
+        <span id="tokens" hidden></span>
+      </div>
+
+      
+
     </div>
+    <div class="res" >
+     <button type="button" class="reset-pill button-container" id="btn-reset">Reset</button></div>
 
-    <!-- Main Card -->
-    <div class="main-card">
-        <main class="card">
-            <button class="translate-pill" id="translate-pill" type="button">Translate</button>         
-            <div class="panes">
-                 <!-- LEFT: Input -->
-                <div class="pane" id="inputPane">
-                    <div class="pane-header">Input</div>
-                        <input id="inputText" type="text" placeholder="Type slang here lol" required/>
-                        
-                </div>
+  </div>
 
-                <!-- RIGHT: Output -->
-                <div class="pane" id="outputPane" aria-live="polite" aria-busy="false">
-                <div class="pane-header">Output</div>
-                <div class="output-box" id="outputText">Translation will appear here...</div>
-                </div>
-            
-                <div class="loader-overlay" aria-hidden="true">
-                    <div class="spinner" role="status" aria-label="loading"></div>
-                </div>
+  <!-- Footer -->
+  <div class="footer">
+    <footer>
+      <p>Powered by OpenAI</p>
+    </footer>
+  </div>
 
-                
-                <div class="statusbar" aria-live="polite">
-                    <span id="latency" hidden></span>
-                    <span id="tokens" hidden></span>
-                </div>
-            </div>
-            <button type="button" class="reset-pill" id="btn-reset" >Reset</button>
-        </main>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <footer>
-            <p>Powered by OpenAI</p>
-        </footer>
-    </div>
-
-    <!-- JS -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

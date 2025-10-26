@@ -14,16 +14,15 @@ from slang_dict import SLANG_DICT, NORM_DICT, get_meaning
 import openai
 import os
 from flask_livereload import LiveReload
+ 
 
-
-
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app= Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 LiveReload(app)
 
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/")
 
@@ -64,28 +63,21 @@ def translate():
     elif mode ==  "normal_to_slang" : 
 
         if text in NORM_DICT:
-            
+
             meaning = NORM_DICT[text]
             return jsonify({"translation": meaning})
 
         else: 
             meaning = get_openai_translation(text, direction="normal_to_slang")
             return jsonify({"translation": meaning})
-        
 
-        
+
+
 
 #AI translationnn
 def get_openai_translation(text: str, direction: str) -> str:
     """
     Use OpenAI API to find the meaning of unknown slang or create a slang version.
-
-    Args:
-        text (str): The text to translate.
-        direction (str): 'slang_to_normal' or 'normal_to_slang'.
-
-    Returns:
-        str: The AI-generated translation.
     """
     try:
         prompt = ""
@@ -94,13 +86,13 @@ def get_openai_translation(text: str, direction: str) -> str:
         else:
             prompt = f"Convert this normal phrase '{text}' into Gen Z slang."
 
-        
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.7,
         )
 
-        return response["choices"][0]["message"]["content"].strip()
+        return response.choices[0].message.content.strip()
 
     except Exception as e:
         return f"Could not find translation. ({str(e)})"
@@ -108,17 +100,6 @@ def get_openai_translation(text: str, direction: str) -> str:
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-                
-
-
-
-
-
-
-
-
 
 
 
